@@ -1,10 +1,23 @@
 source 'https://rubygems.org'
 
-
+# Specify Ruby version
+ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
+
+# Use HAML for views
+gem 'haml'
+# Use Faker for sample data
+gem 'faker'
+# Use will_paginate for pagination
+gem 'will_paginate'
+# Configure will_paginate to use Bootstrap's pagination styles
+gem 'bootstrap-will_paginate'
+# Use Bootstrap for easier styling
+gem 'bootstrap-sass'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,16 +45,29 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
-
 group :development do
+  # Use HAML when generating views
+  gem 'haml-rails'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
+group :development, :test do
+  # Use RSpec for testing
+  gem 'rspec-rails'
+  # Use Jasmine for JavaScript testing
+  gem 'jasmine'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  # Use guard to watch files for automatic testing
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-jasmine'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
