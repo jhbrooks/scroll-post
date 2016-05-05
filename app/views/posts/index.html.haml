@@ -1,2 +1,4 @@
-%h1 Posts#index
-%p Find me in app/views/posts/index.html.haml
+%h1 Posts
+- if @posts
+  %ol
+    = render @posts
