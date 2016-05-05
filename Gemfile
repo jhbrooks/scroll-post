@@ -53,6 +53,9 @@ group :development do
 end
 
 group :development, :test do
+  # Use Factory Girl for testing
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
   # Use RSpec for testing
   gem 'rspec-rails'
   # Use Jasmine for JavaScript testing
