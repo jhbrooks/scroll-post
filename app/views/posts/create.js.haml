@@ -1,0 +1,11 @@
+$("#error_explanation").remove();
+$(".field_with_errors").contents().unwrap();
+
+- if @post.errors.any?
+  $("#new_post").prepend("#{escape_javascript(render("shared/error_messages", object: @post ))}");
+  - @post.errors.each do |field|
+    var input = $("#new_post").find("[name*='post[" + "#{field}" + "]']");
+    input.wrap("<div class='field_with_errors'>");
+- else
+  $("#posts_index").prepend("#{escape_javascript(render(partial: "post", locals: { post: @post }))}");
+  $("#new_post").find("input, textarea, select").not(":submit, :hidden").val("");

@@ -7,11 +7,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @posts = Post.all
-    if @post.save
-      flash[:succes] = "Post created!"
-      redirect_to root_path
-    else
-      render :index
+    respond_to do |format|
+      if @post.save
+          format.html { redirect_to root_path }
+          format.js
+      else
+          format.html { render :index }
+          format.js
+      end
     end
   end
 
