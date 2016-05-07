@@ -40,6 +40,21 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  # Settings to work with js: true feature tests
+  # require 'database_cleaner'
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -92,3 +107,4 @@ RSpec.configure do |config|
 end
 
 require 'support/factory_girl'
+require 'capybara/rspec'

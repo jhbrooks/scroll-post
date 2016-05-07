@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 20)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

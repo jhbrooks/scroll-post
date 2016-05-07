@@ -4,5 +4,9 @@
   = f.text_area :content
   = f.submit "Post"
 - if @posts
+  .infinite_scroll
+    = will_paginate
   %ol#posts_index
     = render @posts
+  .infinite_scroll
+    = will_paginate

@@ -58,6 +58,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   # Use RSpec for testing
   gem 'rspec-rails'
+  # Use Capybara and Selenium for high level testing
+  gem 'capybara'
+  gem 'selenium'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
   # Use Jasmine for JavaScript testing
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
