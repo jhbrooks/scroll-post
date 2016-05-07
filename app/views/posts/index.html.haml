@@ -1,4 +1,8 @@
 %h1 Posts
+= form_for @post, url: posts_path, method: :post do |f|
+  = render "shared/error_messages", object: f.object
+  = f.text_area :content
+  = f.submit "Post"
 - if @posts
   %ol
     = render @posts
