@@ -1,12 +1,15 @@
-%h1 Posts
-= form_for @post, url: posts_path, method: :post, remote: true do |f|
-  = render "shared/error_messages", object: f.object
-  = f.text_area :content
-  = f.submit "Post"
-- if @posts
-  .infinite_scroll
-    = will_paginate
-  %ol#posts_index
-    = render @posts
-  .infinite_scroll
-    = will_paginate
+.container
+  .row
+    .col-md-4.col-md-offset-4
+      %h1 Posts
+      = form_for @post, url: posts_path, method: :post, remote: true do |f|
+        = render "shared/error_messages", object: f.object
+        = f.text_area :content, class: "form-control"
+        = f.submit "Post", class: "btn btn-primary"
+      - if @posts
+        .infinite_scroll
+          = will_paginate
+        %ol#posts_index
+          = render @posts
+        .infinite_scroll
+          = will_paginate

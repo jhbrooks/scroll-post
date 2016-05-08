@@ -1,1 +1,25 @@
 @import "bootstrap";
+
+h1 {
+  text-align: center;
+}
+
+textarea {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#posts_index {
+  padding-left: 0px;
+  li {
+    list-style: none;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 3px;
+  }
+  margin-bottom: 25px;
+}

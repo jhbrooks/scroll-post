@@ -1,4 +1,4 @@
-$("#posts_index").append("#{escape_javascript(render @posts)}");
+$("#{escape_javascript(render @posts)}").hide().appendTo("#posts_index").fadeIn(600);
 - if @posts.next_page
   $(".pagination").replaceWith("#{escape_javascript(will_paginate @posts)}");
 - else
